@@ -39,10 +39,18 @@ vents=[0,1,2,5]
 #
 w1 = 600
 w2 = 900
+gamma_w = 2440
+gamma_h = 1220
+
 bbx=[
-	[ spacing/4 + board_w / 2 - w1, spacing/4 + 150, w1, w1 * 0.7], # Approx A3
-	[ spacing/4 + board_w / 2 - w2, spacing/4 + 150, w2, w2 * 0.7], # Approx A2
-	[ spacing/4 + 0, spacing/4, board_w / 2, board_h ]
+	[ spacing/4 + board_w / 2 - w1, spacing/4 + 150, w1, w1 * 0.7], # Approx A2
+	# [ spacing/4 + board_w / 2 - w2, spacing/4 + 150, w2, w2 * 0.7], 
+	# [ spacing/4 + 0, spacing/4 + 150, board_w / 2, board_h / 2], # Approx quarter board
+	# [ spacing/4 + 0, spacing/4, board_w / 2, board_h ]		# half board
+	# Een kleine vacuumsectie richting A2 lijkt mij nuttig, evenals een gebied voor een kwart plaat (72,5x125) en een gehele (125 * 250).  
+	[ spacing/4 + board_w / 2 - gamma_w / 2, spacing/4 + 150, gamma_w /2 , gamma_h / 2 ],
+	[ spacing/4 + board_w / 2 - gamma_h, spacing/4 + 150, gamma_h, gamma_w / 2 ],
+	[ spacing/4 + board_w / 2 - gamma_h, spacing/4 + 150, gamma_w, gamma_h ],
 ];
 
 nw=int(math.floor(board_w/spacing))
