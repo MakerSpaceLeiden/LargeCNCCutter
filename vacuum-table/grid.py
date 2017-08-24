@@ -35,22 +35,37 @@ support_m=3
 #
 dia_vent=50
 vents=[0,1,2,5]
-# BBXes of the 4 vacuum area, in mm offset.
-#
-w1 = 600
-w2 = 900
+
+# A0	841 x 1189 mm
+# A1	594 x 841 mm
+# A2	420 x 594 mm
+# A3	297 x 420 mm
+# A4	210 x 297 mm	
+A2w=594
+A2h=420
+
+A3w=420
+A3h=297
+
+A4w=297
+A4h=210
+
 gamma_w = 2440
 gamma_h = 1220
 
+off = 180
+offx = 10
+
 bbx=[
-	[ spacing/4 + board_w / 2 - w1, spacing/4 + 150, w1, w1 * 0.7], # Approx A2
-	# [ spacing/4 + board_w / 2 - w2, spacing/4 + 150, w2, w2 * 0.7], 
-	# [ spacing/4 + 0, spacing/4 + 150, board_w / 2, board_h / 2], # Approx quarter board
+	# [ spacing/4 + board_w / 2 - A4w, spacing/4 + 150, A4w, A4h], # Approx A4
+	[ offx + spacing/4 + board_w / 2 - A3w, spacing/4 + off, A3w, A3h], # Approx A3
+	# [ spacing/4 + board_w / 2 - w2, spacing/4 + off, w2, w2 * 0.7], 
+	# [ spacing/4 + 0, spacing/4 + off, board_w / 2, board_h / 2], # Approx quarter board
 	# [ spacing/4 + 0, spacing/4, board_w / 2, board_h ]		# half board
 	# Een kleine vacuumsectie richting A2 lijkt mij nuttig, evenals een gebied voor een kwart plaat (72,5x125) en een gehele (125 * 250).  
-	[ spacing/4 + board_w / 2 - gamma_w / 2, spacing/4 + 150, gamma_w /2 , gamma_h / 2 ],
-	[ spacing/4 + board_w / 2 - gamma_h, spacing/4 + 150, gamma_h, gamma_w / 2 ],
-	[ spacing/4 + board_w / 2 - gamma_h, spacing/4 + 150, gamma_w, gamma_h ],
+	[ offx + spacing/4 + board_w / 2 - gamma_w / 2, spacing/4 + off, gamma_w /2 , gamma_h / 2 ],	# kwart gamma plaat
+	[ offx + spacing/4 + board_w / 2 - gamma_h, spacing/4 + off, gamma_h, gamma_w / 2 ],		# halve gamma plaat
+	[ offx +  spacing/4 + board_w / 2 - gamma_h, spacing/4 + off, gamma_w, gamma_h ],		# hele gamma plaat
 ];
 
 nw=int(math.floor(board_w/spacing))
@@ -77,6 +92,12 @@ for i in range(0,nw):
 		x = ox + spacing * i
 		y = oy + spacing * j
 
+		# Wipe the whole outside area
+		#
+		outside = bbx[3]
+		if x < outside[0] or x > outside[0] + outside[2] or y < outside[1] or y > outside[1] + outside[3]:
+			holes[i][j] = -1
+
 		# Remove the vent holes for the mounts to the supporting bars.
 		#
 		if (x - support_spacing_ox) % support_spacing_x < spacing:
@@ -99,12 +120,19 @@ for i in range(0,nw):
 		if  (i % 24 == 12 and j % 24 == 16):
 				holes[i][j] = 2
 
+
 		# if there is a hole - always remove the 4 groves around it.
 		if holes[i][j]:
 			groves_v[ i+0 ][ j+0] = 1
 			groves_v[ i-1 ][ j+0] = 1
 			groves_h[ i+0 ][ j+0] = 1
 			groves_h[ i+0 ][ j-1] = 1
+
+# 2 peag holes far left/right on 1/3rd
+holes[ 8 ][ nh / 2 - 10] = 2
+holes[ nw - 6 ][ nh / 2 - 10] = 2
+holes[ 8 ][ nh / 2 + 10] = 2
+holes[ nw - 6 ][ nh / 2 + 10] = 2
 
 # Remove the groves around the various BBXes so they
 # become separate areas
@@ -142,6 +170,9 @@ for i in range(0, nw):
 	for j in range(0, nh):
 		c = 3
 		r = diam_vent/2
+
+		if holes[i][j] < 0:
+			continue
 
 		# Assume this is a 'big' hole; rather than a normal vacuum hole.
 		#
