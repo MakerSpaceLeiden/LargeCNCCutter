@@ -40,8 +40,8 @@ vents=[0,1,2,5]
 w1 = 600
 w2 = 900
 bbx=[
-	[ spacing/4 + board_w / 2 - w1, spacing/4 + 200, w1, w1 * 0.7], # Approx A3
-	[ spacing/4 + board_w / 2 - w2, spacing/4 + 200, w2, w2 * 0.7], # Approx A2
+	[ spacing/4 + board_w / 2 - w1, spacing/4 + 150, w1, w1 * 0.7], # Approx A3
+	[ spacing/4 + board_w / 2 - w2, spacing/4 + 150, w2, w2 * 0.7], # Approx A2
 	[ spacing/4 + 0, spacing/4, board_w / 2, board_h ]
 ];
 
@@ -87,6 +87,10 @@ for i in range(0,nw):
 			holes[i1][j0] = 2
 			holes[i1][j1] = 2
 
+		# Peg holes
+		if  (i % 24 == 12 and j % 24 == 16):
+				holes[i][j] = 2
+
 		# if there is a hole - always remove the 4 groves around it.
 		if holes[i][j]:
 			groves_v[ i+0 ][ j+0] = 1
@@ -119,7 +123,7 @@ for b in bbx:
 # and then in the middle of two support beams.
 drawing.add_layer('suckholes', color=2)
 for i in vents:
-	b=bbx[0] 	# innermost bbx
+	b=bbx[1] 	# A2 box
 	y = b[1] + b[3]/2
 	x = support_spacing_ox + support_spacing_x /2 + i * support_spacing_x
 
@@ -139,6 +143,7 @@ for i in range(0, nw):
 		if holes[i][j] == 2:
 			r = diam_peg
 			c = 2
+
 		x = ox + i * spacing
 		y = oy + j * spacing
 		drawing.add(dxf.circle(r,(x,y), color=c))
