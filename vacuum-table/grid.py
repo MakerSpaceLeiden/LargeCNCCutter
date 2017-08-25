@@ -118,9 +118,7 @@ for i in range(0,nw+1):
 			if  (y - support_spacing_oy)  % support_spacing_y < spacing:
 				holes[i][j] = 1
 
-		# Add an extra hole juist 'outside' the 4 corners of the inner 2 bbxen
-		for k in range(0,2):
-			b = bbx[k]
+		for b in bbx:
 			i0 = int((b[0] - ox) / spacing)
 			j0 = int((b[1] - oy) / spacing) 
 			i1 = int((b[0] + b[2] - ox) / spacing) + 1
