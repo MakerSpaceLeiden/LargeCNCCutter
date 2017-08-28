@@ -1,0 +1,12 @@
+Note 1:
+	De coordinaten zitten een krappe 13mm te ver naar rechts (+13 in de shift object).
+
+	Er zit een extra alu-plaatje en de 'twee' kop plaat tussen de frees en de houder.
+
+	Kan zijn dat dit niet meegenomen is in de orginele instrument calibratie.
+
+Note 2:
+	Het lijkt er op alsof er iets inde ijking zit waardoor we niet de hele hoogte
+	kunnen gebruiken c.q. waardoor we het bed lager zouden kunnen zetten.
+
+
