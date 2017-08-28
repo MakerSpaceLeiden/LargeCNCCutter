@@ -7,18 +7,24 @@ from dxfwrite import DXFEngine
 import math
 import sys
 
-
-force_point = 1
+# Wether to use an actual point for a drill hole
+# or a circle with a very small radius.
+force_point = 1	
+diam_point = 0.1 # mm
 
 class DXFEngineExtras(DXFEngine):
 	pass
 
 	def bore(self,radius=1.0, center=(0., 0.), **kwargs):
-		if force_point:
+		if force_point == 1:
 			return self.point(center, **kwargs)
+		if force_point:
+			# Use the exact radius requested with 1% substracted and then 
+			# rely on the tool setting in the mill machine on conjuction with 'bore' ?
+			return self.circle(radius * 0.99, center, **kwargs)
 		else:
 			# ignore the radius given - rely on auto CNC spiral for small r.
-			return self.circle(0.1, center, **kwargs)
+			return self.circle(diam_point/2, center, **kwargs)
 
 dxf = DXFEngineExtras()
 drawing = dxf.drawing('output-all-layers.dxf')
