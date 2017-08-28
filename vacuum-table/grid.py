@@ -12,13 +12,13 @@ force_point = 1
 
 class DXFEngineExtras(DXFEngine):
 	pass
-	
+
 	def bore(self,radius=1.0, center=(0., 0.), **kwargs):
 		if force_point:
-			self.point(center, **kwargs)
+			return self.point(center, **kwargs)
 		else:
 			# ignore the radius given - rely on auto CNC spiral for small r.
-			self.circle(0.1, center, **kwargs)
+			return self.circle(0.1, center, **kwargs)
 
 dxf = DXFEngineExtras()
 drawing = dxf.drawing('output-all-layers.dxf')
