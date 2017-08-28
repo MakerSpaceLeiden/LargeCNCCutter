@@ -3,17 +3,25 @@
 # Generate grid for the vacuum table.
 #
 
-from dxfwrite import DXFEngine as dxf
+from dxfwrite import DXFEngine
 import math
 import sys
 
-drawing = dxf.drawing('output-all-layers.dxf')		# Everything
-grooves = dxf.drawing('output-grooves-layer.dxf')		# groeven plaat 2
-supports = dxf.drawing('output-suports-layer.dxf')		# plaat 3 - diep 8mm gat, ook door de alu balk,
-slotkop = dxf.drawing('output-slotkop-layer.dxf')		# plaat 2  (of onderkant 3) - slotbout koppen
-pegs = dxf.drawing('output-pegs-layer.dxf')		# alle platen (door en door)
-vents = dxf.drawing('output-vents-layer.dxf')		# plaat 3,4,5
-dowels = dxf.drawing('output-dowels-layer.dxf')		# plaat 4,5 and a bit of 3.
+
+force_point = 1
+
+class DXFEngineExtras(DXFEngine):
+	pass
+	
+	def bore(self,radius=1.0, center=(0., 0.), **kwargs):
+		if force_point:
+			self.point(center, **kwargs)
+		else:
+			# ignore the radius given - rely on auto CNC spiral for small r.
+			self.circle(0.1, center, **kwargs)
+
+dxf = DXFEngineExtras()
+drawing = dxf.drawing('output-all-layers.dxf')
 
 drawing.add_layer('annotations')
 drawing.add_layer('grooves')
@@ -22,8 +30,6 @@ drawing.add_layer('slotkop')
 drawing.add_layer('pegs')
 drawing.add_layer('vents')
 drawing.add_layer('dowels')
-
-point = 1
 
 # All sizes in mm
 board_w=2560	# 2559.42 is actual max (from -3.0)
@@ -208,29 +214,15 @@ for i in range(0, nw): # +1
 		if holes[i][j] == 1:
 			r = diam_support/2
 			c = 4
-			drawing.add(dxf.circle(r,(x,y), color=c,layer='supports'))
-			if point:
-				supports.add(dxf.circle(point,(x,y),color=7))
-			else:
-				supports.add(dxf.point((x,y),color=7))
-
+			drawing.add(dxf.bore(r,(x,y), color=c,layer='supports'))
 			drawing.add(dxf.circle(diam_slotkop/2,(x,y), color=c, layer='slotkop'))
-			slotkop.add(dxf.circle(diam_slotkop/2,(x,y), color=c))
 		else: 
  		  if holes[i][j] == 2:
 			r = diam_peg/2
 			c = 2
-			drawing.add(dxf.circle(r,(x,y), color=c,layer='pegs'))
-			if point:
-				pegs.add(dxf.circle(point,(x,y),color=7))
-			else:
-				pegs.add(dxf.point((x,y),color=7))
+			drawing.add(dxf.bore(r,(x,y), color=c,layer='pegs'))
 		  else:
-			drawing.add(dxf.circle(r,(x,y), color=c,layer='vents'))
-			if point:
-				vents.add(dxf.circle(point,(x,y),color=7))
-			else:
-				vents.add(dxf.point((x,y),color=7))
+			drawing.add(dxf.bore(r,(x,y), color=c,layer='vents'))
 
 # Dowels - half off.
 for i in range(0,nw):
@@ -238,11 +230,7 @@ for i in range(0,nw):
 		if i % 15 == 14 and j % 16 == 12:
 			x = ox + i * spacing + spacing / 2
 			y = oy + j * spacing + spacing / 2
-			drawing.add(dxf.circle(diam_dowel/2,(x,y),color=6,layer='dowels'))
-			if point:
-				dowels.add(dxf.circle(point,(x,y),color=7))
-			else:
-				dowels.add(dxf.point((x,y),color=7))
+			drawing.add(dxf.bore(diam_dowel/2,(x,y),color=6,layer='dowels'))
 
 # odd bar mounting holes - outside the suction area to not clash with the grid
 for i in range(1,support_n,2):
@@ -250,22 +238,12 @@ for i in range(1,support_n,2):
 	r = diam_support/2
 	c= 4
 	y = bbx[3][1] - 30
-	drawing.add(dxf.circle(r,(x,y), color=c,layer='supports'))
-	if point:
-		supports.add(dxf.circle(point,(x,y),color=7))
-	else:
-		supports.add(dxf.point((x,y),color=7))
+	drawing.add(dxf.bore(r,(x,y), color=c,layer='supports'))
 	drawing.add(dxf.circle(diam_slotkop/2,(x,y), color=c, layer='slotkop'))
-	slotkop.add(dxf.circle(diam_slotkop/2,(x,y), color=c))
 
 	y = bbx[3][1] +bbx[3][3] + 30
-	drawing.add(dxf.circle(r,(x,y), color=c,layer='supports'))
-	if point:
-		supports.add(dxf.circle(point,(x,y),color=7))
-	else:
-		supports.add(dxf.point((x,y),color=7))
+	drawing.add(dxf.bore(r,(x,y), color=c,layer='supports'))
 	drawing.add(dxf.circle(diam_slotkop/2,(x,y), color=c,layer='slotkop'))
-	slotkop.add(dxf.circle(diam_slotkop/2,(x,y), color=c))
 
 
 
@@ -281,7 +259,6 @@ for i in range(0, nw):
 		if groves_h[i][j] or j >= nh:
 			if pen:
 				drawing.add(dxf.line((sx,sy),(x,y), color=7,layer='grooves'))
-				grooves.add(dxf.line((sx,sy),(x,y), color=7))
 			pen = 0
 		else:
 			if not pen:
@@ -300,7 +277,6 @@ for j  in range(0, nh):
 		if groves_v[i][j] or i >= nw:
 			if pen:
 				drawing.add(dxf.line((sx,sy),(x,y), color=7,layer='grooves'))
-				grooves.add(dxf.line((sx,sy),(x,y), color=7))
 			pen = 0
 		else:
 			if not pen:
@@ -331,8 +307,3 @@ for b in bbx:
 # drawing.add(dxf.text('Test', insert=(0, 0.2), layer='TEXTLAYER'))
 
 drawing.save()
-grooves.save()
-supports.save()
-slotkop.save()
-vents.save()
-pegs.save()
