@@ -13,6 +13,15 @@ supports = dxf.drawing('output-suports-layer.dxf')		# plaat 3 - diep 8mm gat, oo
 slotkop = dxf.drawing('output-slotkop-layer.dxf')		# plaat 2  (of onderkant 3) - slotbout koppen
 pegs = dxf.drawing('output-pegs-layer.dxf')		# alle platen (door en door)
 vents = dxf.drawing('output-vents-layer.dxf')		# plaat 3,4,5
+dowels = dxf.drawing('output-dowels-layer.dxf')		# plaat 4,5 and a bit of 3.
+
+drawing.add_layer('annotations')
+drawing.add_layer('grooves')
+drawing.add_layer('supports')
+drawing.add_layer('slotkop')
+drawing.add_layer('pegs')
+drawing.add_layer('vents')
+drawing.add_layer('dowels')
 
 point = 1
 
@@ -26,6 +35,9 @@ spacing=20
 # Diameter lucht gaatjes
 diam_vent=4
 
+# Wooden pins holding top plate in place.
+diam_dowel=8
+
 # Diameter gaten voor bouten naar balken M6 of M8 slotbouten.
 diam_support=8
 diam_slotkop=20.7	# DIN 603
@@ -37,7 +49,7 @@ diam_peg = 12
 support_bar=40	# width of the bar in MM
 support_n=15	# number of bars; including the end one
 support_m=3
-support_ox=2.6
+support_ox=2.6 + 13
 # Rather than calculate this - use the size Rene measured; checked at bar 14
 support_spacing_x=190
 #
@@ -173,15 +185,13 @@ for b in bbx:
 
 # vent holes in the middle of the smallest/first BBC
 # and then in the middle of two support beams.
-drawing.add_layer('suckholes', color=2)
 for i in suckers:
 	b=bbx[1] 	# A2 box
 	y = b[1] + b[3]/2
 	x = support_spacing_ox + support_spacing_x /2 + i * support_spacing_x
 
-	drawing.add(dxf.circle(dia_vent/2,(x,y), color=5))
+	drawing.add(dxf.circle(dia_vent/2,(x,y), color=5,layer='annotations'))
 
-drawing.add_layer('ventholes', color=2)
 for i in range(0, nw): # +1
 	for j in range(0, nh): # +1
 		c = 3
@@ -196,57 +206,72 @@ for i in range(0, nw): # +1
 		# Assume this is a 'big' hole; rather than a normal vacuum hole.
 		#
 		if holes[i][j] == 1:
-			r = diam_support
+			r = diam_support/2
 			c = 4
-			drawing.add(dxf.circle(r,(x,y), color=c))
+			drawing.add(dxf.circle(r,(x,y), color=c,layer='supports'))
 			if point:
 				supports.add(dxf.circle(point,(x,y),color=7))
 			else:
 				supports.add(dxf.point((x,y),color=7))
-			slotkop.add(dxf.circle(diam_slotkop,(x,y), color=c))
+
+			drawing.add(dxf.circle(diam_slotkop/2,(x,y), color=c, layer='slotkop'))
+			slotkop.add(dxf.circle(diam_slotkop/2,(x,y), color=c))
 		else: 
  		  if holes[i][j] == 2:
-			r = diam_peg
+			r = diam_peg/2
 			c = 2
-			drawing.add(dxf.circle(r,(x,y), color=c))
+			drawing.add(dxf.circle(r,(x,y), color=c,layer='pegs'))
 			if point:
 				pegs.add(dxf.circle(point,(x,y),color=7))
 			else:
 				pegs.add(dxf.point((x,y),color=7))
 		  else:
-			drawing.add(dxf.circle(r,(x,y), color=c))
+			drawing.add(dxf.circle(r,(x,y), color=c,layer='vents'))
 			if point:
 				vents.add(dxf.circle(point,(x,y),color=7))
 			else:
 				vents.add(dxf.point((x,y),color=7))
 
+# Dowels - half off.
+for i in range(0,nw):
+	for j in range(0,nh):
+		if i % 15 == 14 and j % 16 == 12:
+			x = ox + i * spacing + spacing / 2
+			y = oy + j * spacing + spacing / 2
+			drawing.add(dxf.circle(diam_dowel/2,(x,y),color=6,layer='dowels'))
+			if point:
+				dowels.add(dxf.circle(point,(x,y),color=7))
+			else:
+				dowels.add(dxf.point((x,y),color=7))
+
 # odd bar mounting holes - outside the suction area to not clash with the grid
 for i in range(1,support_n,2):
 	x = ox + support_spacing_x * i
-	r = diam_support
+	r = diam_support/2
 	c= 4
 	y = bbx[3][1] - 30
-	drawing.add(dxf.circle(r,(x,y), color=c))
+	drawing.add(dxf.circle(r,(x,y), color=c,layer='supports'))
 	if point:
 		supports.add(dxf.circle(point,(x,y),color=7))
 	else:
 		supports.add(dxf.point((x,y),color=7))
-	slotkop.add(dxf.circle(diam_slotkop,(x,y), color=c))
+	drawing.add(dxf.circle(diam_slotkop/2,(x,y), color=c, layer='slotkop'))
+	slotkop.add(dxf.circle(diam_slotkop/2,(x,y), color=c))
 
 	y = bbx[3][1] +bbx[3][3] + 30
-	drawing.add(dxf.circle(r,(x,y), color=c))
+	drawing.add(dxf.circle(r,(x,y), color=c,layer='supports'))
 	if point:
 		supports.add(dxf.circle(point,(x,y),color=7))
 	else:
 		supports.add(dxf.point((x,y),color=7))
-	slotkop.add(dxf.circle(diam_slotkop,(x,y), color=c))
+	drawing.add(dxf.circle(diam_slotkop/2,(x,y), color=c,layer='slotkop'))
+	slotkop.add(dxf.circle(diam_slotkop/2,(x,y), color=c))
 
 
 
 # Various grooves. We try to figure out 'long' lines in one direction
 # as opposed to drawing all the short CM pieces individually.
 #
-drawing.add_layer('groves', color=2)
 for i in range(0, nw):
 	j = 0
 	pen = 0
@@ -255,7 +280,7 @@ for i in range(0, nw):
 		y = oy + j * spacing
 		if groves_h[i][j] or j >= nh:
 			if pen:
-				drawing.add(dxf.line((sx,sy),(x,y), color=7))
+				drawing.add(dxf.line((sx,sy),(x,y), color=7,layer='grooves'))
 				grooves.add(dxf.line((sx,sy),(x,y), color=7))
 			pen = 0
 		else:
@@ -274,7 +299,7 @@ for j  in range(0, nh):
 		y = oy + j * spacing
 		if groves_v[i][j] or i >= nw:
 			if pen:
-				drawing.add(dxf.line((sx,sy),(x,y), color=7))
+				drawing.add(dxf.line((sx,sy),(x,y), color=7,layer='grooves'))
 				grooves.add(dxf.line((sx,sy),(x,y), color=7))
 			pen = 0
 		else:
@@ -286,25 +311,23 @@ for j  in range(0, nh):
 	if pen:
 		error
 
-drawing.add_layer('annoations', color=2)
 
 # Draw the outline of the board -- enlargen them by 1 mm so they do not clash with a CNC line
 #
-drawing.add(dxf.rectangle((0-1,-1),board_w+2, board_h+2, color = 1))
+drawing.add(dxf.rectangle((0-1,-1),board_w+2, board_h+2, color = 1,layer='annotations'))
 
 # Draw each support bart - with a center lines to check the support slotbouten.
 #
 for i in range(0,support_n):
 	x = support_ox + support_spacing_x * i
 	print i, x
-	drawing.add(dxf.rectangle((x, -20), support_bar, board_h + 40, color = 1))
-	drawing.add(dxf.line((x + support_bar /2, -10), (x + support_bar /2, board_h + 20), color = 1))
+	drawing.add(dxf.rectangle((x, -20), support_bar, board_h + 40, color = 1,layer='annotations'))
+	drawing.add(dxf.line((x + support_bar /2, -10), (x + support_bar /2, board_h + 20), color = 1,layer='annotations'))
 
 # draw each of the BBXes -- enlargen them by 1 mm so they do not clash with a CNC line
 for b in bbx:
-	drawing.add(dxf.rectangle((b[0]-1,b[1]-1),b[2]+2,b[3]+2, color = 3))
+	drawing.add(dxf.rectangle((b[0]-1,b[1]-1),b[2]+2,b[3]+2, color = 3,layer='annotations'))
 
-# drawing.add_layer('TEXTLAYER', color=2)
 # drawing.add(dxf.text('Test', insert=(0, 0.2), layer='TEXTLAYER'))
 
 drawing.save()
