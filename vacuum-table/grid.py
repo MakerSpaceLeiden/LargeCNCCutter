@@ -296,6 +296,7 @@ drawing.add(dxf.rectangle((0-1,-1),board_w+2, board_h+2, color = 1))
 #
 for i in range(0,support_n):
 	x = support_ox + support_spacing_x * i
+	print i, x
 	drawing.add(dxf.rectangle((x, -20), support_bar, board_h + 40, color = 1))
 	drawing.add(dxf.line((x + support_bar /2, -10), (x + support_bar /2, board_h + 20), color = 1))
 
