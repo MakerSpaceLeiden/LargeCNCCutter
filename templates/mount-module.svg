@@ -2,9 +2,14 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 595.2756 841.8898" width="595.2756pt" height="841.8898pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata> Produced by OmniGraffle 7.4.2 
-    <dc:date>2017-09-15 15:42:26 +0000</dc:date>
+    <dc:date>2017-09-15 16:29:25 +0000</dc:date>
   </metadata>
   <defs>
+    <font-face font-family="Helvetica Neue" font-size="10" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="500">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
     <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DimensionArrow_Marker" viewBox="-1 -6 10 12" markerWidth="10" markerHeight="12" color="black">
       <g>
         <path d="M 0 0 L 8 0 M 8 5 L 8 -5 M 0 2 L 7 0 L 0 -2" fill="none" stroke="currentColor" stroke-width="1"/>
@@ -15,11 +20,6 @@
         <path d="M 0 0 L -8 0 M -8 -5 L -8 5 M 0 -2 L -7 0 L 0 2" fill="none" stroke="currentColor" stroke-width="1"/>
       </g>
     </marker>
-    <font-face font-family="Helvetica Neue" font-size="10" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="500">
-      <font-face-src>
-        <font-face-name name="HelveticaNeue"/>
-      </font-face-src>
-    </font-face>
     <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="500">
       <font-face-src>
         <font-face-name name="HelveticaNeue"/>
@@ -32,6 +32,16 @@
     <g>
       <title>Layer 1</title>
       <rect x="141.73229" y="56.692914" width="283.46457" height="425.19685" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="396.8504" y="127.55906" width="22" height="23" fill="white"/>
+      <text transform="translate(401.8504 132.91906)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø8</tspan>
+      </text>
+      <rect x="147.40158" y="127.55906" width="22" height="23" fill="white"/>
+      <text transform="translate(152.40158 132.91906)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø8</tspan>
+      </text>
+      <circle cx="371.3386" cy="121.88977" r="22.677201" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="195.59056" cy="121.88977" r="22.677201" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <line x1="283.46457" y1="510.2362" x2="283.46457" y2="28.346457" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="4,9,1,5"/>
       <line x1="187.08662" y1="85.03937" x2="385.51183" y2="85.03939" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="4,9,1,5"/>
       <line x1="283.46457" y1="340.15748" x2="283.46457" y2="368.50394" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
@@ -69,50 +79,40 @@
       <circle cx="255.11812" cy="442.20474" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <circle cx="311.81103" cy="442.20474" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <circle cx="198.4252" cy="85.03937" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <circle cx="195.59056" cy="121.88977" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <circle cx="371.3386" cy="121.88977" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <circle cx="283.46457" cy="354.3307" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="283.46457" cy="354.3307" r="11.338601" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <line x1="198.4252" y1="70.86613" x2="198.4252" y2="99.21259" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <line x1="212.59843" y1="85.03936" x2="184.25197" y2="85.03936" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <line x1="195.59056" y1="107.71653" x2="195.59056" y2="136.06298" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <line x1="209.76378" y1="121.88976" x2="181.41733" y2="121.88976" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <line x1="371.3386" y1="107.71653" x2="371.3386" y2="136.06298" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <line x1="385.5118" y1="121.88976" x2="357.16537" y2="121.88976" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="195.59056" y1="107.71653" x2="195.59056" y2="150.23621" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="229.6063" y1="121.88976" x2="181.41733" y2="121.88976" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="371.3386" y1="107.71653" x2="371.3386" y2="150.23621" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="385.5118" y1="121.88976" x2="342.99214" y2="121.88976" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <line x1="368.50395" y1="70.86614" x2="368.50395" y2="99.2126" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <line x1="382.67718" y1="85.03937" x2="354.3307" y2="85.03937" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
-      <text transform="translate(396.1811 64.88756)" fill="black">
+      <text transform="translate(377.01576 67.72221)" fill="black">
         <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
       </text>
-      <text transform="translate(167.25197 67.72221)" fill="black">
+      <text transform="translate(206.25985 67.72221)" fill="black">
         <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
-      </text>
-      <text transform="translate(164.40552 138.58835)" fill="black">
-        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø8</tspan>
-      </text>
-      <text transform="translate(394.0118 135.7537)" fill="black">
-        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø8</tspan>
       </text>
       <text transform="translate(221.09843 416.38363)" fill="black">
         <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
       </text>
       <text transform="translate(246.61024 328.5096)" fill="black">
-        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø7</tspan>
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø8</tspan>
       </text>
       <text transform="translate(351.49214 416.38363)" fill="black">
         <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
       </text>
-      <line x1="187.08662" y1="121.88977" x2="385.51183" y2="121.88978" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="4,9,1,5"/>
+      <line x1="187.08662" y1="121.88977" x2="377.0079" y2="121.88978" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="4,9,1,5"/>
       <line x1="311.31103" y1="89.03937" x2="311.31103" y2="117.88976" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
       <rect x="300.31103" y="93.73606" width="22" height="23" fill="white"/>
       <text transform="translate(305.31103 99.09606)" fill="black">
         <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".44" y="10" textLength="11.12">13</tspan>
       </text>
-      <path d="M 211.62572 105.85461 C 220.48174 114.71058 220.48174 129.06895 211.62572 137.92493 C 202.76974 146.78095 188.41138 146.78095 179.5554 137.92493 C 170.69938 129.06895 170.69938 114.71058 179.5554 105.85461 C 188.41138 96.99858 202.76974 96.99858 211.62572 105.85461" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="1,4"/>
-      <path d="M 387.37375 105.85461 C 396.22978 114.71058 396.22978 129.06895 387.37375 137.92493 C 378.51778 146.78095 364.1594 146.78095 355.30343 137.92493 C 346.4474 129.06895 346.4474 114.71058 355.30343 105.85461 C 364.1594 96.99858 378.51778 96.99858 387.37375 105.85461" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="1,4"/>
-      <text transform="translate(361.5079 152.76158)" fill="black">
+      <text transform="translate(356.49607 149.92693)" fill="black">
         <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".12" y="10" textLength="50.76">ø16/45˚/4.4</tspan>
       </text>
-      <text transform="translate(177.9134 152.76158)" fill="black">
+      <text transform="translate(163.74016 149.92693)" fill="black">
         <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".12" y="10" textLength="50.76">ø16/45˚/4.4</tspan>
       </text>
       <line x1="447.87403" y1="60.692915" x2="447.87403" y2="477.8898" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
@@ -130,8 +130,10 @@
         <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x="277.956" y="15" textLength="164.8">ess1050 in ‘lage’ stand</tspan>
       </text>
       <text transform="translate(192.08662 558.5319)" fill="black">
-        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x=".116" y="15" textLength="186.768">1.00 / 15 September 2017</tspan>
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x=".116" y="15" textLength="186.768">1.01 / 15 September 2017</tspan>
       </text>
+      <circle cx="195.59056" cy="121.88977" r="11.338601" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="371.3386" cy="121.88977" r="11.338601" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
     </g>
   </g>
 </svg>
