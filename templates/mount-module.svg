@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 595.2756 841.8898" width="595.2756pt" height="841.8898pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata> Produced by OmniGraffle 7.4.2 
+    <dc:date>2017-09-15 15:42:26 +0000</dc:date>
+  </metadata>
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DimensionArrow_Marker" viewBox="-1 -6 10 12" markerWidth="10" markerHeight="12" color="black">
+      <g>
+        <path d="M 0 0 L 8 0 M 8 5 L 8 -5 M 0 2 L 7 0 L 0 -2" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DimensionArrow_Marker_2" viewBox="-9 -6 10 12" markerWidth="10" markerHeight="12" color="black">
+      <g>
+        <path d="M 0 0 L -8 0 M -8 -5 L -8 5 M 0 -2 L -7 0 L 0 2" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="10" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="500">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="500">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+    <title>Canvas 1</title>
+    <rect fill="white" width="595.2756" height="841.8898"/>
+    <g>
+      <title>Layer 1</title>
+      <rect x="141.73229" y="56.692914" width="283.46457" height="425.19685" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="283.46457" y1="510.2362" x2="283.46457" y2="28.346457" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="4,9,1,5"/>
+      <line x1="187.08662" y1="85.03937" x2="385.51183" y2="85.03939" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="4,9,1,5"/>
+      <line x1="283.46457" y1="340.15748" x2="283.46457" y2="368.50394" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="340.1575" y1="354.3307" x2="269.29134" y2="354.3307" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="202.4252" y1="104.88189" x2="364.50394" y2="104.88189" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="232.17565" y="93.38189" width="22" height="23" fill="white"/>
+      <text transform="translate(237.17565 98.74189)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" fill="black" x=".44" y="10" textLength="11.12">60</tspan>
+      </text>
+      <line x1="199.59055" y1="141.73229" x2="367.3386" y2="141.73229" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="230.83268" y="130.23229" width="22" height="23" fill="white"/>
+      <text transform="translate(235.83268 135.59229)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".44" y="10" textLength="11.12">62</tspan>
+      </text>
+      <line x1="259.11812" y1="464.8819" x2="307.81103" y2="464.8819" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="273.12282" y="453.3819" width="22" height="23" fill="white"/>
+      <text transform="translate(278.12282 458.7419)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".44" y="10" textLength="11.12">20</tspan>
+      </text>
+      <line x1="331.65355" y1="89.03937" x2="331.65355" y2="350.3307" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="320.65355" y="221.13056" width="22" height="23" fill="white"/>
+      <text transform="translate(325.65355 226.49056)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".44" y="10" textLength="11.12">95</tspan>
+      </text>
+      <line x1="347.66143" y1="89.03937" x2="347.66143" y2="438.2047" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="334.16143" y="378.95476" width="27" height="23" fill="white"/>
+      <text transform="translate(339.16143 384.31476)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".16" y="10" textLength="16.68">126</tspan>
+      </text>
+      <line x1="255.1181" y1="428.0315" x2="255.1181" y2="456.37795" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="269.29134" y1="442.2047" x2="240.94489" y2="442.2047" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="311.81103" y1="428.0315" x2="311.81103" y2="456.37795" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="365.6693" y1="442.2047" x2="255.1181" y2="442.2047" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="368.50395" cy="85.03937" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="255.11812" cy="442.20474" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="311.81103" cy="442.20474" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="198.4252" cy="85.03937" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="195.59056" cy="121.88977" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="371.3386" cy="121.88977" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <circle cx="283.46457" cy="354.3307" r="8.503951" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="198.4252" y1="70.86613" x2="198.4252" y2="99.21259" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="212.59843" y1="85.03936" x2="184.25197" y2="85.03936" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="195.59056" y1="107.71653" x2="195.59056" y2="136.06298" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="209.76378" y1="121.88976" x2="181.41733" y2="121.88976" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="371.3386" y1="107.71653" x2="371.3386" y2="136.06298" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="385.5118" y1="121.88976" x2="357.16537" y2="121.88976" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="368.50395" y1="70.86614" x2="368.50395" y2="99.2126" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <line x1="382.67718" y1="85.03937" x2="354.3307" y2="85.03937" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <text transform="translate(396.1811 64.88756)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
+      </text>
+      <text transform="translate(167.25197 67.72221)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
+      </text>
+      <text transform="translate(164.40552 138.58835)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø8</tspan>
+      </text>
+      <text transform="translate(394.0118 135.7537)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø8</tspan>
+      </text>
+      <text transform="translate(221.09843 416.38363)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
+      </text>
+      <text transform="translate(246.61024 328.5096)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø7</tspan>
+      </text>
+      <text transform="translate(351.49214 416.38363)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".35" y="10" textLength="11.3">ø6</tspan>
+      </text>
+      <line x1="187.08662" y1="121.88977" x2="385.51183" y2="121.88978" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="4,9,1,5"/>
+      <line x1="311.31103" y1="89.03937" x2="311.31103" y2="117.88976" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="300.31103" y="93.73606" width="22" height="23" fill="white"/>
+      <text transform="translate(305.31103 99.09606)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".44" y="10" textLength="11.12">13</tspan>
+      </text>
+      <path d="M 211.62572 105.85461 C 220.48174 114.71058 220.48174 129.06895 211.62572 137.92493 C 202.76974 146.78095 188.41138 146.78095 179.5554 137.92493 C 170.69938 129.06895 170.69938 114.71058 179.5554 105.85461 C 188.41138 96.99858 202.76974 96.99858 211.62572 105.85461" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="1,4"/>
+      <path d="M 387.37375 105.85461 C 396.22978 114.71058 396.22978 129.06895 387.37375 137.92493 C 378.51778 146.78095 364.1594 146.78095 355.30343 137.92493 C 346.4474 129.06895 346.4474 114.71058 355.30343 105.85461 C 364.1594 96.99858 378.51778 96.99858 387.37375 105.85461" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" stroke-dasharray="1,4"/>
+      <text transform="translate(361.5079 152.76158)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".12" y="10" textLength="50.76">ø16/45˚/4.4</tspan>
+      </text>
+      <text transform="translate(177.9134 152.76158)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".12" y="10" textLength="50.76">ø16/45˚/4.4</tspan>
+      </text>
+      <line x1="447.87403" y1="60.692915" x2="447.87403" y2="477.8898" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="434.37403" y="408.78266" width="27" height="23" fill="white"/>
+      <text transform="translate(439.37403 414.14266)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".16" y="10" textLength="16.68">150</tspan>
+      </text>
+      <line x1="145.73229" y1="48.18898" x2="421.19686" y2="48.18898" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5"/>
+      <rect x="202.81636" y="36.688978" width="27" height="23" fill="white"/>
+      <text transform="translate(207.81636 42.04898)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="10" font-weight="500" x=".16" y="10" textLength="16.68">100</tspan>
+      </text>
+      <text transform="translate(58.85827 530.18546)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x=".244" y="15" textLength="278">Boor template voor mounting plate - kr</tspan>
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x="277.956" y="15" textLength="164.8">ess1050 in ‘lage’ stand</tspan>
+      </text>
+      <text transform="translate(192.08662 558.5319)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="16" font-weight="500" x=".116" y="15" textLength="186.768">1.00 / 15 September 2017</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
