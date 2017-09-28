@@ -237,7 +237,7 @@ gezien}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{229.60630559921265, 53.858269214630127}, {126, 23}}</string>
+					<string>{{220.60630559921265, 53.858269214630127}, {144, 23}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -274,7 +274,7 @@ gezien}</string>
 \deftab720
 \pard\pardeftab720\qc\partightenfactor0
 
-\f0\fs20 \cf0 \'f86 (tapgat - seeker for \'f87)}</string>
+\f0\fs20 \cf0 \'f86/5 (tapgat - seeker for \'f87/6)}</string>
 					</dict>
 					<key>Wrap</key>
 					<string>NO</string>
@@ -3001,7 +3001,7 @@ assemetrysch}</string>
 		<key>Sidebar_Tab</key>
 		<integer>0</integer>
 		<key>VisibleRegion</key>
-		<string>{{77, 343}, {424, 292}}</string>
+		<string>{{61, -28.5}, {424, 292}}</string>
 		<key>ZoomValues</key>
 		<array>
 			<array>
