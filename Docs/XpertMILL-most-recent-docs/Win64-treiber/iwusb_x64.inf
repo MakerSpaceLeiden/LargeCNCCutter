@@ -1,0 +1,176 @@
+;$$$TDiMatrixLock_coinst$$$  ; This case-sensitive tag is needed to trigger the device class co-installer.
+;
+;******************************************************************************
+;
+; Matrix-USB Setup Information file
+;------------------------------------------------------------------------------
+;
+; (c) Copyright 2005-2008 by TDi GmbH Technodata-Interware
+;
+; This file supports:
+;     Windows XP x64 Edition
+;     Windows Server 2003 x64 Edition
+;     Windows Vista x64 Edition
+;
+
+;******************************************************************************
+; Version section
+;------------------------------------------------------------------------------
+[Version]
+Signature="$Windows NT$"
+Provider=%S_Provider%
+DriverVer=10/07/2009,2.30.0.41110
+
+CatalogFile=iwusb_x64.cat
+
+Class=USBMatrixDeviceClass
+ClassGUID={244C1E60-F4F9-11d5-892E-F4D558505300}
+
+
+;******************************************************************************
+; Class Install section (optional)
+;------------------------------------------------------------------------------
+[ClassInstall32] 
+AddReg=_AddReg_ClassInstall
+
+[_AddReg_ClassInstall]
+HKR,,,,"%S_DeviceClassDisplayName%"
+HKR,,Icon,,"-20"
+
+
+;******************************************************************************
+; Options
+;------------------------------------------------------------------------------
+[ControlFlags]
+
+
+;******************************************************************************
+; Manufacturer section
+;------------------------------------------------------------------------------
+[Manufacturer]
+%S_Mfg%=_Models, ntamd64
+
+
+;******************************************************************************
+; Models section
+;------------------------------------------------------------------------------
+; x64-based systems
+[_Models.ntamd64]
+%S_DeviceDesc%=_Install, USB\VID_0E50&PID_0001
+
+
+;******************************************************************************
+; Install sections x64-based systems
+;------------------------------------------------------------------------------
+[_Install.ntamd64]
+CopyFiles=_CopyFiles_sys_x64
+
+[_Install.ntamd64.Services]
+AddService = %S_ServiceName%, 0x00000002, _AddService_x64, _EventLog_x64
+
+[_Install.ntamd64.HW]
+AddReg=_AddReg_HW_x64, _Parameters_x64
+
+[_AddService_x64]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\%S_DriverName_x64%.sys
+
+[_EventLog_x64]
+AddReg=_EventLog_x64_AddReg
+
+[_EventLog_x64_AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\%S_DriverName_x64%.sys"
+HKR,,TypesSupported,  %REG_DWORD%,7
+
+
+;******************************************************************************
+; Registry sections
+;------------------------------------------------------------------------------
+[_AddReg_HW_x64]
+HKR,,CleanupWizard_DeviceIdentString,%REG_SZ%,"{DAB6A146-D93E-48ab-B3E5-374AB8FFF277}"
+HKR,,DriverUserInterfaceGuid,%REG_SZ%,"{96e73b6e-7a5a-11d4-9f24-0080c82727f4}"
+HKR,, DisableDefaultInterface, %REG_DWORD%, 1
+
+; automatic configuration when the driver starts.
+HKR,,ConfigIndex,          %REG_DWORD%, 0
+HKR,,Interface,            %REG_DWORD%, 0
+HKR,,AlternateSetting,     %REG_DWORD%, 0
+
+
+[_Parameters_x64]
+; Parameters used on Windows Server 2003 x64, XP x64
+HKR,,PowerStateOnOpen,     %REG_DWORD%, 0
+HKR,,PowerStateOnClose,    %REG_DWORD%, 0
+HKR,,MinPowerStateUsed,    %REG_DWORD%, 3
+HKR,,MinPowerStateUnused,  %REG_DWORD%, 3
+HKR,,EnableRemoteWakeup,   %REG_DWORD%, 0
+HKR,,AbortPipesOnPowerDown,%REG_DWORD%, 1
+HKR,,UnconfigureOnClose,   %REG_DWORD%, 0
+HKR,,ResetDeviceOnClose,   %REG_DWORD%, 0
+HKR,,MaxIsoPackets,        %REG_DWORD%, 512
+HKR,,ShortTransferOk,      %REG_DWORD%, 1
+HKR,,RequestTimeout,       %REG_DWORD%, 1000
+HKR,,SuppressPnPRemoveDlg, %REG_DWORD%, 1
+
+
+
+;******************************************************************************
+; Copy Files section
+;------------------------------------------------------------------------------
+[_CopyFiles_sys_x64]
+iwusb_x64.sys,,,0x00000004
+
+
+;******************************************************************************
+; Destination Directories
+;------------------------------------------------------------------------------
+[DestinationDirs]
+DefaultDestDir =     12   ; %windir%\system32\drivers 
+_CopyFiles_sys_x64 = 12
+
+
+;******************************************************************************
+; Disk Layout
+;------------------------------------------------------------------------------
+[SourceDisksNames.amd64]
+1=%S_DiskName%,,
+
+[SourceDisksFiles.amd64]
+iwusb_x64.sys=1
+
+
+;******************************************************************************
+; Text Strings
+;------------------------------------------------------------------------------
+[Strings]
+; Non-Localizable Strings, DO NOT MODIFY!
+REG_SZ         = 0x00000000
+REG_MULTI_SZ   = 0x00010000
+REG_EXPAND_SZ  = 0x00020000
+REG_BINARY     = 0x00000001
+REG_DWORD      = 0x00010001
+
+
+; Localizable Strings, modify as required
+
+S_Provider="TDi GmbH Technodata-Interware "
+S_Mfg="TDi GmbH Technodata-Interware "
+
+; device class display name, shown in Device Manager
+S_DeviceClassDisplayName="USB Matrix Device Class"
+
+; device description
+S_DeviceDesc="Matrix USB-Key"
+
+; disk name
+S_DiskName="Matrix-USB Driver Disk"
+
+
+; File name of driver executable.
+S_ServiceName="IwUSB"
+S_DriverName_x64="iwusb_x64"
+
+
+; *** EOF ***

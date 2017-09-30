@@ -1,0 +1,18 @@
+Installationsanleitung für XpertMILL
+====================================
+
+
+Elektronik SF-C2 mit XpertLINK, XpertCNC 2A bis 4A und Xport:
+Installieren Sie bitte die Version 2.0.0.5. Starten Sie dazu die Installation in XpertMILL_Basisinstallation_V_2.0.0.5_bulid_86 und führen Sie danach das Update auf Build 88 im Ordner XpertMILL_Update_auf_V_2.0.0.5_build_88 aus.
+Starten Sie die Installation entsprechend mit Setup.exe.
+
+Sie können anschliessend auf die Version 2.0.0.6 updaten. Diese ist nicht freigegeben, beinhaltet aber einige Verbesserungen.
+
+Nach der Installation installieren Sie die USB Treiber. Schliessen Sie die Hardware erst danach an.
+Mit 32 bit Systemen starten Sie dazu C:\Program Files (x86)\XpertMill\Program\USB Driver\dpinst.exe
+Mit 64 bit Systemen starten Sie dazu C:\Program Files (x86)\XpertMill\Program\USB Driver\DPInstx64.exe
+(versuchen Sie im Zweifelsfalle beide, wenns das falsche ist, wird Windows Ihnen das schon sagen...)
+
+Unter Installationsanleitungen-DE finden Sie weitere Installationsinformationen.
+
+Laumat GmbH

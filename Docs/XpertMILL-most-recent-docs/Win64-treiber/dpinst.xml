@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<dpInst>
+    <legacyMode/>
+    <enableNotListedLanguages/>
+
+    <language code="0x409">
+
+    <dpinstTitle>XpertMill Device Installer</dpinstTitle>
+    
+    <welcomeTitle>Welcome to the XpertMill Driver Installer!</welcomeTitle>
+    <welcomeIntro>This wizard will walk you through updating the drivers for your XpertMill application.</welcomeIntro>
+
+    <eulaHeaderTitle>End User License Agreement</eulaHeaderTitle>
+    <eulaYesButton>I &amp;accept this EULA</eulaYesButton>
+    <eulaNoButton>I do &amp;not accept this EULA</eulaNoButton>
+
+    <installHeaderTitle>Installing the drivers for your XpertMill application...</installHeaderTitle>
+
+    <eula type="txt" path="eula.txt" />
+    </language>
+
+    <language code="0x407">
+
+    <dpinstTitle>XpertMill Gerätetreiber Installation</dpinstTitle>
+    
+    <welcomeTitle>Willkommen bei der XpertMill Treiber Installation!</welcomeTitle>
+    <welcomeIntro>Mit diesem Assistenten können Sie die Softwaretreiber installieren, die zum ordnungsgemäßen Ausführen der XpertMill Software erforderlich sind.</welcomeIntro>
+
+    <installHeaderTitle>Die Treiber für XpertMill werden installiert...</installHeaderTitle>
+
+
+    </language>
+
+     <icon>XpertMill.ico</icon>
+    <watermarkPath>XpertMill.bmp</watermarkPath>
+
+</dpInst>
+

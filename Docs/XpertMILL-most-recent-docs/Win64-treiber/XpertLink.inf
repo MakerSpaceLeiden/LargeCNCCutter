@@ -1,0 +1,122 @@
+;
+; XpertLink.INF - Installation inf for XpertLink Stepper Controller
+;
+
+[Version]
+Signature="$Windows NT$"
+DriverPackageType=PlugAndPlay
+DriverPackageDisplayName=%DESC%
+Class==USB
+ClassGuid={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%STEPFOUR%
+DriverVer=02/03/2011,2.0
+
+[SourceDisksNames]
+1 = %MediaDescription%,,,
+
+[Manufacturer]
+%STEPFOUR%=STEPFOUR,NTamd64
+
+[STEPFOUR]
+%XLinkDeviceName%=XLink_Install.NT, USB\VID_03eb&PID_0921
+
+[STEPFOUR.NTamd64]
+%XLinkDeviceName%=XLink_Install.NT, USB\VID_03eb&PID_0921
+
+[ClassInstall32]
+AddReg=SampleClass_RegistryAdd
+
+[SampleClass_RegistryAdd]
+HKR,,,,%ClassName%
+HKR,,Icon,,"-10"
+
+[SourceDisksFiles]
+XpertLink.dll=1,i386
+WudfUpdate_01009.dll=1,i386
+WdfCoInstaller01009.dll=1,i386
+WinUsbCoinstaller2.dll=1,i386
+
+[SourceDisksFiles.amd64]
+XpertLink.dll=1,amd64
+WudfUpdate_01009.dll=1,amd64
+WdfCoInstaller01009.dll=1,amd64
+WinUsbCoinstaller2.dll=1,amd64
+
+; =================== XpertLink Device ==================================
+
+[XLink_Install.NT]
+CopyFiles=UMDriverCopy
+Include=WINUSB.INF                      ; Import sections from WINUSB.INF
+Needs=WINUSB.NT                         ; Run the CopyFiles & AddReg directives for WinUsb.INF
+
+[XLink_Install.NT.hw]
+AddReg=XLink_Device_AddReg
+
+[XLink_Install.NT.Services]
+AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall  ; flag 0x2 sets this as the service for the device
+AddService=WinUsb,0x000001f8,WinUsb_ServiceInstall  ; this service is installed because its a filter.
+
+[XLink_Install.NT.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+UmdfDispatcher=WinUsb
+UmdfService=XpertLink, XpertLink_Install
+UmdfServiceOrder=XpertLink
+
+[XLink_Install.NT.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[WinUsb_Install]
+KmdfLibraryVersion = 1.9
+
+[XpertLink_Install]
+UmdfLibraryVersion=1.9.0
+DriverCLSID = "{A7C2E585-EF7F-449c-9E04-F11226E0E33D}"
+
+ServiceBinary = "%12%\UMDF\XpertLink.dll"
+
+[XLink_Device_AddReg]
+HKR,,"LowerFilters",0x00010008,"WinUsb" ; FLG_ADDREG_TYPE_MULTI_SZ | FLG_ADDREG_APPEND
+HKR,,"WinUsbPowerPolicyOwnershipDisabled",0x00010001,1
+
+[WUDFRD_ServiceInstall]
+DisplayName = %WudfRdDisplayName%
+ServiceType = 1
+StartType = 3
+ErrorControl = 1
+ServiceBinary = %12%\WUDFRd.sys
+LoadOrderGroup = Base
+
+
+[WinUsb_ServiceInstall]
+DisplayName     = %WinUsb_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WudfUpdate_01009.dll", "WinUsbCoinstaller2.dll", "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[CoInstallers_CopyFiles]
+WudfUpdate_01009.dll
+WdfCoInstaller01009.dll
+WinUsbCoinstaller2.dll
+
+[DestinationDirs]
+UMDriverCopy=12,UMDF ; copy to driversMdf
+CoInstallers_CopyFiles=11
+
+[UMDriverCopy]
+XpertLink.dll
+
+; =================== Generic ==================================
+
+[Strings]
+STEPFOUR="Step-Four Ges.m.b.H"
+DESC="UMDF Driver Package"
+MediaDescription="XpertLink Installation Disk"
+ClassName="Stepper Controller"
+WudfRdDisplayName="Windows Driver Foundation - User-mode Driver Framework Reflector"
+XLinkDeviceName="Stepfour XpertLink Stepper-Controller (UMDF)" 
+WinUsb_SvcDesc="WinUSB Driver"

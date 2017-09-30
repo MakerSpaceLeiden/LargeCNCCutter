@@ -1,0 +1,105 @@
+//*************************************************************
+[GENERAL]
+
+BEZ=Spindel default V2
+PIC=Kress6990E.bmp
+
+// Parameterdateiversion
+
+VERSION=1.7
+
+// Defaultdrehzahl
+
+SPINDEL=10000
+
+
+
+//*************************************************************
+
+[PARAMETER]
+
+// wenn Parameterimport=0, dann werden keine Parameter, die nicht bereits in der Datei vorhanden sind
+// aus einer übergeordneten Parameterliste importiert
+PARAMETERIMPORT=0
+
+// Parameter Index
+
+PS=0,1,2,101,102,103,202,203,204,205,206,207,501,502
+
+// ************ Spindel ************************************
+
+
+// Spindeltyp:
+// 0: keine Spindel
+// 2: Analog-Spindel
+// 4: VHF-Spindel (intern)
+// 5: VHF-Spindel (extern)
+
+P9000=2
+
+// Spindel-Notauseingang nicht aktiviert
+// 1: Spindel-Notauseingang aktiv
+
+P9001=0
+
+// Dieser Ausgang kann nicht verändert werden, wenn sich die Spindel gerade dreht.
+// 0: dieses Feature ist nicht aktiv
+// 1-8: der geschützte Ausgang
+
+P9002=0
+
+// Zeitintervall, indem mit der Spindel kommuniziert wird.
+// Antwortet die Spindel in 7 aufeinander folgenden Intervallen falsch oder nicht,
+// wird ein Notaus ausgelöst
+
+P9101=350
+
+// Maximale Drehzahl der Spindel für Typ 4, 5
+
+P9102=50000
+
+// Minimale Drehzahl der Spindel für Typ 4, 5
+
+P9103=5000
+
+// Maximale Drehzahl der Spindel für Typ 2
+
+P9202=24000
+
+// Minimale Drehzahl der Spindel für Typ 2
+
+P9203=2000
+
+// Ausgangsspannung für maximale Drehzahl
+
+P9204=12000
+
+// Ausgangsspannung für minimale Drehzahl
+
+P9205=100
+
+// Zeit vom Stillstand bis Maximaldrehzahl
+
+P9206=3000
+
+// Zeit von Maximaldrehzahl bis Stillstand
+
+P9207=3000
+
+// Hochlaufzeit über Eingang
+
+P9503=0
+
+// Bremszeit über Eingang
+
+P9504=0
+
+// Typ Eingang Hochlaufzeit
+
+P9513=0
+
+// Typ Eingang Bremszeit
+
+P9514=0
+
+//*************************************************************

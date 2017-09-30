@@ -1,0 +1,285 @@
+;******************************************************************************
+;
+; Matrix-USB Setup Information file
+;------------------------------------------------------------------------------
+;
+; (c) Copyright 2005 by TDi GmbH Technodata-Interware
+;
+; This file supports:
+;     Windows 98 SE
+;     Windows ME
+;
+;     Windows 2000
+;     Windows 2000 Server
+;     Windows XP
+;     Windows Server 2003
+;
+;     Windows XP x64 Edition
+;     Windows Server 2003 x64 Edition
+;
+; Revision: 2.30
+; Date: 11.10.2005
+; Author: V. Frincu
+;
+;******************************************************************************
+
+
+;******************************************************************************
+; Version section
+;------------------------------------------------------------------------------
+[Version]
+Signature="$CHICAGO$"
+Provider=%S_Provider%
+DriverVer=10/12/2005,1.0.0.0
+Class=USBMatrixDeviceClass
+ClassGUID={244C1E60-F4F9-11d5-892E-F4D558505300}
+
+; Specifies the .cat file provided by WHQL if the driver is certified.
+;CatalogFile=IwUSB.cat
+;CatalogFile.ntx86=IwUSB.cat
+;CatalogFile.ntamd64=IwUSB_x64.cat
+
+
+;******************************************************************************
+; Class Install section (optional)
+;------------------------------------------------------------------------------
+[ClassInstall] 
+AddReg=_AddReg_ClassInstall
+
+[ClassInstall32] 
+AddReg=_AddReg_ClassInstall
+
+[_AddReg_ClassInstall]
+HKR,,,,"%S_DeviceClassDisplayName%"
+HKR,,Icon,,"-20"
+
+
+;******************************************************************************
+; Options
+;------------------------------------------------------------------------------
+[ControlFlags]
+
+
+;******************************************************************************
+; Manufacturer section
+;------------------------------------------------------------------------------
+[Manufacturer]
+%S_Mfg%=_Models, ntamd64
+
+
+;******************************************************************************
+; Models section
+;------------------------------------------------------------------------------
+; x86-based systems
+[_Models]
+%S_DeviceDesc%=_Install, USB\VID_0E50&PID_0001
+
+; x64-based systems
+[_Models.ntamd64]
+%S_DeviceDesc%=_Install, USB\VID_0E50&PID_0001
+
+
+;******************************************************************************
+; Install sections x86 and x64-based systems
+;------------------------------------------------------------------------------
+; Windows 98/ME
+;----------------------------------
+[_Install]
+CopyFiles=_CopyFiles_sys
+AddReg=_AddReg_98
+DriverVer=06/28/2004,1.51.0.4702
+
+[_Install.HW]
+AddReg=_AddReg_HW, _Parameters_98
+
+;----------------------------------
+; Windows 2000/2003/XP
+;----------------------------------
+[_Install.ntx86]
+CopyFiles=_CopyFiles_sys
+DriverVer=06/28/2004,1.51.0.4702
+
+[_Install.ntx86.Services]
+AddService = %S_ServiceName%, 0x00000002, _AddService, _EventLog
+
+[_Install.ntx86.HW]
+AddReg=_AddReg_HW, _Parameters_NT
+
+[_AddService]
+DisplayName    = %S_ServiceName%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\%S_DriverName%.sys
+
+[_EventLog]
+AddReg=_EventLog_AddReg
+
+[_EventLog_AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\%S_DriverName%.sys"
+HKR,,TypesSupported,  %REG_DWORD%,7
+
+;----------------------------------
+; Windows Server 2003 x64/XP x64
+;----------------------------------
+[_Install.ntamd64]
+CopyFiles=_CopyFiles_sys_x64
+DriverVer=10/12/2005,2.30.0.41110
+
+[_Install.ntamd64.Services]
+AddService = %S_ServiceName%, 0x00000002, _AddService_x64, _EventLog_x64
+
+[_Install.ntamd64.HW]
+AddReg=_AddReg_HW_x64, _Parameters_x64
+
+[_AddService_x64]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\%S_DriverName_x64%.sys
+
+[_EventLog_x64]
+AddReg=_EventLog_x64_AddReg
+
+[_EventLog_x64_AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\%S_DriverName_x64%.sys"
+HKR,,TypesSupported,  %REG_DWORD%,7
+
+
+;******************************************************************************
+; Registry sections
+;------------------------------------------------------------------------------
+[_AddReg_98]
+; required standard entries
+HKR,,NTMPDriver,,%S_DriverName%.sys
+HKR,,DevLoader,,*ntkern
+
+[_AddReg_HW]
+; create registry key used to store configuration parameters
+HKLM,"%S_ConfigPath%",,,
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",,,
+
+; Create a link to the configuration key. This is absolute required!
+HKR,,USBIO_ConfigurationPath,,\Registry\Machine\%S_ConfigPath%\%S_DeviceConfigPath%
+HKR,,USBIO_UserInterfaceGuid,,"{96e73b6e-7a5a-11d4-9f24-0080c82727f4}"
+
+
+[_AddReg_HW_x64]
+; The following string is used by the Cleanup Wizard to unambiguously identify
+; devices and INF files.
+HKR,,CleanupWizard_DeviceIdentString,%REG_SZ%,"{DAB6A146-D93E-48ab-B3E5-374AB8FFF277}"
+HKR,,DriverUserInterfaceGuid,%REG_SZ%,"{96e73b6e-7a5a-11d4-9f24-0080c82727f4}"
+HKR,, DisableDefaultInterface, %REG_DWORD%, 1
+
+; automatic configuration when the driver starts.
+HKR,,ConfigIndex,          %REG_DWORD%, 0
+HKR,,Interface,            %REG_DWORD%, 0
+HKR,,AlternateSetting,     %REG_DWORD%, 0
+
+
+[_Parameters_98]
+; Parameters used on Windows 98, Windows ME
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",PowerStateOnOpen,     %REG_DWORD%, 0
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",PowerStateOnClose,    %REG_DWORD%, 0
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",EnableRemoteWakeup,   %REG_DWORD%, 1
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",MinPowerStateUsed,    %REG_DWORD%, 3
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",MinPowerStateUnused,  %REG_DWORD%, 3
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",AbortPipesOnPowerDown,%REG_DWORD%, 1
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",UnconfigureOnClose,   %REG_DWORD%, 0
+
+[_Parameters_NT]
+; Parameters used on Windows 2000,2003,XP
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",PowerStateOnOpen,     %REG_DWORD%, 0
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",PowerStateOnClose,    %REG_DWORD%, 0
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",EnableRemoteWakeup,   %REG_DWORD%, 1
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",MinPowerStateUsed,    %REG_DWORD%, 3
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",MinPowerStateUnused,  %REG_DWORD%, 3
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",AbortPipesOnPowerDown,%REG_DWORD%, 1
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",UnconfigureOnClose,   %REG_DWORD%, 0
+HKLM,"%S_ConfigPath%"\"%S_DeviceConfigPath%",SuppressPnPRemoveDlg, %REG_DWORD%, 1
+
+[_Parameters_x64]
+; Parameters used on Windows Server 2003 x64, XP x64
+HKR,,PowerStateOnOpen,     %REG_DWORD%, 0
+HKR,,PowerStateOnClose,    %REG_DWORD%, 0
+HKR,,MinPowerStateUsed,    %REG_DWORD%, 3
+HKR,,MinPowerStateUnused,  %REG_DWORD%, 3
+HKR,,EnableRemoteWakeup,   %REG_DWORD%, 0
+HKR,,AbortPipesOnPowerDown,%REG_DWORD%, 1
+HKR,,UnconfigureOnClose,   %REG_DWORD%, 0
+HKR,,ResetDeviceOnClose,   %REG_DWORD%, 0
+HKR,,MaxIsoPackets,        %REG_DWORD%, 512
+HKR,,ShortTransferOk,      %REG_DWORD%, 1
+HKR,,RequestTimeout,       %REG_DWORD%, 1000
+HKR,,SuppressPnPRemoveDlg, %REG_DWORD%, 1
+
+
+;******************************************************************************
+; Copy Files section
+;------------------------------------------------------------------------------
+[_CopyFiles_sys]        ; Windows 98/ME/2000/2003/XP
+IwUSB.sys
+
+[_CopyFiles_sys_x64]    ; Windows Server 2003 x64/XP x64
+IwUSB_x64.sys
+
+
+;******************************************************************************
+; Destination Directories
+;------------------------------------------------------------------------------
+[DestinationDirs]
+DefaultDestDir     = 11   ; OS default SYSTEM or SYSTEM32 directory 
+_CopyFiles_sys     = 10,System32\Drivers
+_CopyFiles_sys_x64 = 12
+
+
+;******************************************************************************
+; Disk Layout
+;------------------------------------------------------------------------------
+[SourceDisksNames]        ; for all Windows plattforms
+1=%S_DiskName%,,
+
+[SourceDisksFiles]        ; Windows 98/ME/2000/2003/XP
+%S_DriverName%.sys=1
+
+[SourceDisksFiles.amd64]  ; Windows Server 2003 x64/XP x64
+%S_DriverName_x64%.sys=1
+
+
+;******************************************************************************
+; Text Strings
+;------------------------------------------------------------------------------
+[Strings]
+; Non-Localizable Strings
+REG_SZ         = 0x00000000
+REG_MULTI_SZ   = 0x00010000
+REG_EXPAND_SZ  = 0x00020000
+REG_BINARY     = 0x00000001
+REG_DWORD      = 0x00010001
+
+
+; Localizable Strings, modify as required
+
+S_Provider="TDi GmbH Technodata-Interware "
+S_Mfg="TDi GmbH Technodata-Interware "
+
+; device class display name, shown in Device Manager
+S_DeviceClassDisplayName="USB Matrix Device Class"
+
+; device description
+S_DeviceDesc="Matrix USB-Key"
+
+; disk name
+S_DiskName="Matrix-USB Driver Disk"
+
+; configuration registry path (x86) 
+S_ConfigPath="SYSTEM\CurrentControlSet\Services\IwUSB"
+
+; device-specific configuration registry path (x86)
+S_DeviceConfigPath="Parameters"
+
+; File name of driver executable.
+S_ServiceName="IwUSB"
+S_DriverName="IwUSB"            ; Driver for Windows 98/ME/2000/2003/XP
+S_DriverName_x64="IwUSB_x64"    ; Driver for Windows Server 2003 x64/XP x64
+

@@ -1,0 +1,470 @@
+//*************************************************************
+[GENERAL]
+
+BEZ=Xpert1000S
+PIC=Basic 1000.bmp
+SIZE=1040.000049,620.000029,180.000009
+VERSION=1.7
+KOORDINATEN=0
+TOOL="-",0.000,38.000,9.000,9.000,26.000,0.000,0.000,3.170,0,0,"Fräser F048" -
+MSIZE=40,20,10,270,40,20,30,30,20,30,40,10,10,40,234
+HANDBETRIEB=5000,1500,1300,1100,0,1000,1000,1000,1000
+STEPS=1.000,0.100,0.020,1.000,0.100,0.020,1.000,0.100,0.020,1.000,0.100,0.020
+ENDSTUFE=2
+SSK=0.000000,0.000000,0.000000,0.000000
+SPINDEL=10000
+
+//*************************************************************
+[POS]
+
+XNULL=10.000000
+YNULL=10.000000
+ZNULL=20.000000
+ANULL=0.000000
+XWWP=10.000000
+YWWP=200.000000
+ZWWP=69.000000
+XWKT=16.500
+YWKT=304.000
+ZWKT=20.000
+XABS=0.000000
+YABS=0.000000
+ZABS=0.000000
+AABS=0.000000
+X0DEF=10.000000, 10.000000
+Y0DEF=10.000000, 10.000000
+Z0DEF=20.000000, 20.000000
+
+//*************************************************************
+[PARAMETER]
+
+PARAMETERIMPORT=0
+
+PG=13,14,15,19,20,21,22,23,24,25,26,50,102,500,501,502,503,504,505,506,507,508,509,510,511,512,513,515,516,517,518,520,521,522,523,530,531,532,533,534,535,541,542,543,544,545,546,547,551,552,553,554,555,556,557,558,559,560,561,582,583,585,586,589,700,701,702,703
+PA=1,2,3,4,5,6,7,8,11,13,20,21,22,23,24,25,30,31,32,500
+PD=1,4,5,6,7,10,11,13,20,21,22,23,24,25,30,31,32,500
+IO=0,1,2,3,4,5,6,7,8,9,51,52,53,54,55,56,57,58,60,61,62,63,64,65,66,67,68,100,101,102,103,500,501,502,503,504,505,506,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,651,652
+HBOX=1,2,3,4,5,10,11,12,13,20,21,22,23
+
+// -----------------------------
+// Controllertyp
+
+P0001=2
+
+// -----------------------------
+// Globale Maschinenparameter
+
+P0013=0
+P0014=1000
+P0015=1
+P0019=4000
+P0020=100
+P0021=0
+P0022=115
+P0023=10000
+P0024=120
+P0025=20000
+P0026=0
+
+P0050=1
+
+P0102=1
+
+// -----------------------------
+
+P0500=2
+P0501=90
+P0502=89
+P0503=88
+P0504=0
+P0505=1
+P0506=0
+P0507=0
+P0508=1
+P0509=0
+
+P0510=0
+P0511=0
+P0512=0
+P0513=0.020000
+			   
+P0515=0
+P0516=1
+P0517=0
+P0518=3333
+
+P0520=10000
+P0521=10000
+P0522=19992
+P0523=19968
+P0530=8000
+P0531=2000
+P0532=2000
+P0533=400
+P0534=1000
+P0535=0
+
+// Referenzschalter ignorieren und Achse auf referenziert setzen (def. Ref-Schalterposition)
+// 541 = X-Achse, 542 = Y-Achse, 543 = Z-Achse, 544=A-Achse
+
+P0541=0
+P0542=0
+P0543=0
+P0544=0
+P0545=0
+
+
+P0551=0
+P0552=0
+P0553=0
+P0554=0
+P0555=0
+P0556=0
+P0557=0
+P0558=0
+
+P0560=0
+P0561=0	
+
+// -----------------------------
+
+P0601=0
+P0602=0
+P0603=0
+P0604=0
+P0605=0
+P0606=0
+P0607=0
+P0608=0
+P0609=0
+P0610=0
+P0611=0
+P0612=0
+P0613=0
+P0614=0
+P0615=0
+P0616=0
+P0617=0
+P0618=0
+P0619=0
+P0620=0
+P0621=0
+P0622=0
+P0623=0
+
+// ------------------------------------
+// PX001 0: Achse nicht angeschlossen, sonst: Achse vorhanden
+// PX002 Faktor für mechanische Auflösung von Achsen mit sehr geringer Auflösung
+// PX003 0: keine Kopplung
+//       4..6: Nummer der Parallelachse zu dieser Achse.
+//       Die Parallelachse muss deaktiviert werden.
+//       (d.h. PX001 der parallelen Achse muss 0 sein)
+// PX004 Schrittauflösung in Vollschritte pro Meter
+// PX005 Motorpolung
+// PX006 Maximaler Motorstrom in mA
+// PX007 Achse bei HALT auf 0 fahren
+//       0: deaktiviert
+//       1: aktiviert Nur für Z-Achse relevant
+// PX008 Haltestrom in % vom maximalen Motorstrom
+// PX011 Referenzfahrtgeschwindigkeit einwärts d.h. in Richtung Referenzschalters
+// PX013 Maximale Achsengeschwindigkeit
+// PX020 Typ des Referenzschalters
+//       1: Öffner
+//       2: Schliesser
+// PX021 Typ des Endschalters
+//       0: nicht vorhanden
+//       1: wie Referenzschalter
+// PX022 Abstand des Referenzpunktes vom Referenzschalter
+// PX023 Größe des Arbeitsbereichs der Achse
+// PX024 Wegfahrweg wenn Achse im Ref-Schalter steht.
+//       Der Wert 0 deaktiviert diese Funktion
+// PX025 0: aktiver Referenzschalter während der Fahrt löst NOTAUS aus
+//       1: Referenzschalter wird während der Fahrt ignoriert. (z.B. für Drehteller)
+// PX030 Startfrequenz (Eilgang) in Vollschritten/s
+// PX031 Rampensteigung
+// PX032 max. Freq. der e-Funktion in Vollschritten/s
+//
+// PX500 Position des Referenzschalters
+//       0: bei min-Pos
+//       1: bei max-Pos
+
+
+// -----------------------------
+// X-Achsen Parameter
+
+P1001=X
+P1002=1
+P1003=4
+P1004=20000.000000
+P1005=0
+P1006=1450
+P1007=0
+P1008=50
+P1011=25000
+P1013=133333
+P1020=2
+P1021=0
+P1022=500
+P1023=1040000
+P1024=10000
+P1025=0
+
+P1030=200
+P1031=200
+P1032=10000
+
+P1500=0
+
+// -----------------------------
+// Y-Achsen Parameter
+
+P2001=Y
+P2002=1
+P2003=0
+P2004=20000.000000
+P2005=0
+P2006=1450
+P2007=0
+P2008=50
+P2011=25000
+P2013=133333
+P2020=2
+P2021=0
+P2022=500
+P2023=620000
+P2024=10000
+P2025=0
+
+P2030=200
+P2031=200
+P2032=10000
+
+P2500=1
+
+// -----------------------------
+// Z-Achsen Parameter
+
+P3001=Z
+P3002=1
+P3003=0
+P3004=40000.000000
+P3005=0
+P3006=1450
+P3007=1
+P3008=50
+P3011=16667
+P3013=66667
+P3020=2
+P3021=0
+P3022=500
+P3023=180000
+P3024=10000
+P3025=0
+
+P3030=120
+P3031=200
+P3032=8000
+
+P3500=1
+
+// -----------------------------
+// U-Achsen Parameter
+
+P4001=0
+P4002=1
+P4003=0
+P4004=25000.000000
+P4005=0
+P4006=1450
+P4007=0
+P4008=0
+P4011=20000
+P4013=50000
+P4020=2
+P4021=0
+P4022=1000
+P4023=10000000
+P4024=10000
+P4025=1
+
+P4030=200
+P4031=200
+P4032=10000
+
+P4500=0
+
+// -----------------------------
+// T-Achsen Parameter
+
+P5001=U
+P5002=1
+P5003=0
+P5004=40000.000000
+P5005=0
+P5006=1450
+P5007=0
+P5008=50
+P5011=20000
+P5013=20000
+P5020=2
+P5021=0
+P5022=1000
+P5023=500000
+P5024=10000
+P5025=0
+
+P5030=200
+P5031=200
+P5032=10000
+
+P5500=0
+
+// ************ IO's und Vermessung ************************
+
+// Eingänge
+// 0: Eingang = Schliesser
+// 1: Eingang = Öffner
+
+P7000=0
+P7001=0
+P7002=0
+P7003=0
+P7004=1
+P7005=0
+P7006=0
+P7007=0
+P7008=0
+
+// Modus der Ausänge
+// 0: normaler OUT-Port
+// 1: AUTO-Port: Notaus
+// 2: AUTO-Port: Notaus negiert
+// 3: AUTO-Port: MotorInAction
+
+P7051=0
+P7052=0
+P7053=0
+P7054=0
+P7055=0
+P7056=0
+P7057=0
+P7058=0
+
+// Notaus-Modus
+// 0: bei Notaus keine Aktion
+// 1: bei Notaus: OUT-Port=0
+// 2: bei Notaus: OUT-Port=1
+
+P7061=0
+P7062=0
+P7063=0
+P7064=0
+P7065=0
+P7066=0
+P7067=0
+P7068=0
+
+// Werkstückvermessung
+
+P7100=5 
+P7101=1
+P7102=16667
+P7103=0
+
+// ----------------------------------------------
+
+P7500=0
+P7501=0
+P7502=0
+P7503=0
+P7504=0
+P7505=0
+P7506=0
+P7507=0
+P7508=0
+P7509=0
+P7510=0
+P7511=0
+P7512=0
+P7513=0
+P7514=0
+P7515=0
+P7516=0
+P7517=0
+P7518=0
+P7519=0
+P7520=0
+P7521=0
+P7522=0
+P7523=0
+
+P7550=0
+P7551=0
+P7552=0
+P7553=0
+P7554=0
+P7555=0
+P7556=0
+P7557=0
+P7558=0
+P7559=0
+P7560=0
+P7561=0
+P7562=0
+P7563=0
+P7564=0
+P7565=0
+P7566=0
+P7567=0
+P7568=0
+P7569=0
+P7570=0
+P7571=0
+P7572=0
+
+// ************ HBOX ***************************************
+
+// externer HBox-Notaus-Eingang nicht aktiv (0) / aktiv (1)
+P8001=0
+
+// X +/- -Tasten vertauschen
+P8002=1
+
+// Y +/- -Tasten vertauschen
+P8003=1
+
+// Z +/- -Tasten vertauschen
+P8004=1
+
+// virtuelle Eingänge des Controlpanels aktiv
+P8005=1
+
+// Geschwindigkeit im Normalgang
+P8010=20000
+
+// Weg-Schrittweite im Normalgang
+P8011=100
+
+// Override-Schrittweite im Normalgang
+P8012=1
+
+// Spindelgeschwindigkeit im Normalgang
+P8013=0
+
+// Geschwindigkeit im Eilgang
+P8020=50000
+
+// Weg-Schrittweite im Eilgang
+P8021=1000
+
+// Override-Schrittweite im Eilgang
+P8022=15
+
+// Spindelgeschwindigkeit im Eilgang
+P8023=0
+
+//*************************************************************
+
+[IONAMES]
+
+

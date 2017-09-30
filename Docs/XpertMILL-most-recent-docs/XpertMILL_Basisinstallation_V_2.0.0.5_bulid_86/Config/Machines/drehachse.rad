@@ -1,0 +1,111 @@
+//*************************************************************
+[GENERAL]
+
+BEZ=Drehachse
+PIC=Drehachse.bmp
+
+KOORDINATEN=512
+DREHACHSE=100.000000,50.000000,0.000000,100.000000,50.000000,1,0
+
+// Parameterdateiversion
+
+VERSION=1.7
+
+// wenn Parameterimport=0, dann werden keine Parameter, die nicht bereits in der Datei vorhanden sind
+// aus einer übergeordneten Parameterliste importiert
+
+//*************************************************************
+
+[PARAMETER]
+
+PARAMETERIMPORT=0
+
+PG=534,582,583,585,586,589
+
+PA=1,2,3,4,5,6,7,8,11,13,20,21,22,23,24,25,30,31,32,500,501
+
+// -----------------------------
+
+// PosSpeedA
+P0534=1000
+
+// Beschleunigungswert alpha
+P0582=15000
+
+// Rampenmode
+P0583=1
+
+// Referenzschalter vorhanden
+P0585=0
+
+
+// Autoref enable: 	0 = keine automatische Referenzierung
+//			1 = automatische Referenzierung bei Reset
+//			2 = automatische Referenzierung bei Reset und Programmstart
+//
+P0586=0
+
+
+// Refmode:    	0 = Position nach Reset = letzte bekannte Position
+//		1 = Position auf Refpos Setzen
+//		2 = Achsen auf nicht referenziert setzen
+P0589=0
+
+
+
+// ************ Tangentialmesser ************************************
+
+// ------------------------------------
+// PX001 0: Achse nicht angeschlossen, sonst: Achse vorhanden
+// PX002 Faktor für mechanische Auflösung von Achsen mit sehr geringer Auflösung
+// PX003 0: keine Kopplung
+//       4..6: Nummer der Parallelachse zu dieser Achse.
+//       Die Parallelachse muss deaktiviert werden.
+//       (d.h. PX001 der parallelen Achse muss 0 sein)
+// PX004 Schrittauflösung in Vollschritte pro Meter
+// PX005 Motorpolung
+// PX006 Maximaler Motorstrom in mA
+// PX007 Achse bei HALT auf 0 fahren
+//       0: deaktiviert
+//       1: aktiviert Nur für Z-Achse relevant
+// PX011 Referenzfahrtgeschwindigkeit einwärts d.h. in Richtung Referenzschalters
+// PX013 Maximale Achsengeschwindigkeit
+// PX020 Typ des Referenzschalters
+//       1: Öffner
+//       2: Schliesser
+// PX021 Typ des Endschalters
+//       0: nicht vorhanden
+//       1: wie Referenzschalter
+// PX022 Abstand des Referenzpunktes vom Referenzschalter
+// PX023 Größe des Arbeitsbereichs der Achse
+// PX024 Wegfahrweg wenn Achse im Ref-Schalter steht.
+//       Der Wert 0 deaktiviert diese Funktion
+// PX025 0: aktiver Referenzschalter während der Fahrt löst NOTAUS aus
+//       1: Referenzschalter wird während der Fahrt ignoriert. (z.B. für Drehteller)
+// PX500 Position des Referenzschalters
+//       0: bei min-Pos
+//       1: bei max-Pos
+
+
+P4001=U
+P4002=1
+P4003=0
+P4004=144000
+P4005=0
+P4006=1400
+P4007=0
+P4008=55
+P4011=20000
+P4013=10000
+P4020=2
+P4021=0
+P4022=1000
+P4023=1000000
+P4024=2222
+P4025=1
+P4030=210
+P4031=201
+P4032=10010
+P4500=0
+
+P4501=1
