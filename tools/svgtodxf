@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+if test $# -ne 1 ; then
+    echo "Syntax: $0 <file.eps>"
+    exit 1
+fi
+
+svgfile=$1
+base=${1%.*}
+epsfile="${base}.eps"
+dxffile="${base}.dxf"
+
+(
+	inkscape -f "${svgfile}" -E "${epsfile}" 
+	pstoedit -dt -f 'dxf:-polyaslines -mm' "${epsfile}" "${dxffile}"
+) || E=$?
+
+rm "${epsfile}"
+
+exit $E
+
