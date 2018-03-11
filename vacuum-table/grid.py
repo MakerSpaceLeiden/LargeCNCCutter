@@ -103,6 +103,7 @@ bbx=[
 	[ offx +  spacing/4 + board_w / 2 - gamma_h, spacing/4 + off, gamma_w, gamma_h ],		# hele gamma plaat
 ];
 
+
 nw=int(math.floor(board_w/spacing))
 nh=int(math.floor(board_h/spacing))
 
@@ -113,9 +114,9 @@ ox = support_ox + support_bar / 2
 
 oy = (board_h - my) / 2
 
-holes = [[0 for x in range(nh+3)] for y in range(nw+3)]
-groves_h = [[0 for x in range(nh + 1)] for y in range(nw + 1)]
-groves_v = [[0 for x in range(nh + 1)] for y in range(nw + 1)]
+holes = [[0 for x in range(nh+4)] for y in range(nw+4)]
+groves_h = [[0 for x in range(nh + 3)] for y in range(nw + 3)]
+groves_v = [[0 for x in range(nh + 3)] for y in range(nw + 3)]
 
 support_spacing_y=board_h / support_m
 support_spacing_ox=support_ox + support_bar / 2;
@@ -147,10 +148,11 @@ for i in range(0,nw+1):
 			j0 = int((b[1] - oy) / spacing) 
 			i1 = int((b[0] + b[2] - ox) / spacing) + 1
 			j1 = int((b[1] + b[3] - oy) / spacing) + 1
-			holes[i0][j0] = 2
-			holes[i0][j1] = 2
-			holes[i1][j0] = 2
-			holes[i1][j1] = 2
+			if i0 >= 0 and j0 >=  0:
+				holes[i0][j0] = 2
+				holes[i0][j1] = 2
+				holes[i1][j0] = 2
+				holes[i1][j1] = 2
 
 		# Peg holes 
 		#
@@ -187,13 +189,15 @@ for b in bbx:
 	j0 = int(y0 / spacing)
 	j1 = int(y1 / spacing)
 	for i in range(i0+1, i1 + 1):
-		if (j0):
+		if j0 > 0:
 			groves_h[i][j0]=1
-		groves_h[i][j1]= 1
+		if i >=0 and j1 >=0:
+			groves_h[i][j1]= 1
 	for j in range(j0+1, j1 + 1):
-		if (i0):
+		if i0 > 0:
 			groves_v[i0][j]=1
-		groves_v[i1][j]= 1
+		if i0 >=0 and j >=0:
+			groves_v[i1][j]= 1
 
 # vent holes in the middle of the smallest/first BBC
 # and then in the middle of two support beams.
