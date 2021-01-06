@@ -1,10 +1,10 @@
-# General:
+# General
 Provide a robust midlife update of the CNC Machine control components
 
-## Prereqs:
+## Prereqs
 Decide on Controller Software
 
-## In Scope:
+## In Scope
 Replace control
 Replace motors
 Replace end stops
@@ -20,11 +20,11 @@ Level the table
 Customize wiki page
 Organize training (Training for Trainers)
 
-## Out of Scope:
+## Out of Scope
 Adjust the extraction system
 Adjusting the vacuum table
 
-## High Level Milestones:
+## High Level Milestones
 
 Go/NoGo decision participants/board + Budget
 Final design plus technical detail drawing
