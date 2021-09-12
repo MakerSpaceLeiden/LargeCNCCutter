@@ -5,14 +5,12 @@ Provide a robust midlife update of the CNC Machine control components
 Decide on Controller Software
 
 ## In Scope
-Replace control
-Replace motors
 Replace end stops
 Replace stepper motors
 Replace cabling
 Replace drivers
 Replace controller board
-Replace power supply
+Re-use power supply
 Replace PC
 Make the milling head controllable
 Level the table
@@ -21,7 +19,7 @@ Customize wiki page
 Organize training (Training for Trainers)
 
 ## Out of Scope
-Adjust the extraction system
+Adjust the vacuum extraction system
 Adjusting the vacuum table
 
 ## High Level Milestones
@@ -29,4 +27,4 @@ Adjusting the vacuum table
 Go/NoGo decision participants/board + Budget
 Final design plus technical detail drawing
 Ordering Components
-Work on implementation for two weekends
+Work on implementation
